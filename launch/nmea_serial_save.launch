@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- A simple launch file for the nmea_serial_driver node. -->
+
+  <arg name="port" default="/dev/ttyUSB0" />
+  <arg name="baud" default="115200" />
+  <arg name="frame_id" default="wgs84" />
+  <arg name="useRMC" default="False" />
+  <arg name="save_path" default="/home/bit_uav/bit_uav/gps_ws/src/nmea_serial_save/data/19_11_13/for_kml/data4.csv" />
+  <arg name="save_path2" default="/home/bit_uav/bit_uav/gps_ws/src/nmea_serial_save/data/19_11_13/for_enu/data4.txt" />
+  <arg name="kml_mode" default="True" />
+
+  <node name="nmea_serial_save_node" pkg="nmea_serial_save" type="nmea_serial_save" output="screen">
+    <param name="port" value="$(arg port)"/>
+    <param name="baud" value="$(arg baud)" />
+    <param name="frame_id" value="$(arg frame_id)" />
+    <param name="useRMC" value="$(arg useRMC)" />
+    <param name="save_path" value="$(arg save_path)" />
+    <param name="save_path2" value="$(arg save_path2)" />
+    <param name="kml_mode" value="$(arg kml_mode)" />
+  </node>
+
+</launch>
